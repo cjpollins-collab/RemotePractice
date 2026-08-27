@@ -1,0 +1,158 @@
+Owner@DESKTOP-LAL5SFG MINGW64 ~
+$ gh --version
+gh version 2.98.0 (2026-08-20)
+https://github.com/cli/cli/releases/tag/v2.98.0
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~
+$ gh auth login
+? Where do you use GitHub? GitHub.com
+? What is your preferred protocol for Git operations on this host? HTTPS
+? Authenticate Git with your GitHub credentials? Yes
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: 0180-0846
+Press Enter to open https://github.com/login/device in your browser...
+✓ Authentication complete.
+- gh config set -h github.com git_protocol https
+✓ Configured git protocol
+✓ Logged in as cjpollins-collab
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~
+$ ^V
+bash: $'\026': command not found
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~
+$ git clone ^V
+fatal: repository '?' does not exist
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~
+$ git clone https://github.com/cjpollins-collab/RemotePractice.git
+Cloning into 'RemotePractice'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (3/3), done.
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~
+$ cd RemotePractice
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ touch notes.txt
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git add notes.txt
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git commit -m "Add notes file"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'Owner@DESKTOP-LAL5SFG.(none)')
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git config --global user.name "Carnell Pollins"
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git config --global user.email "cjpollins@gmail.com"
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ ls
+README.md  notes.txt
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git push origin main
+Everything up-to-date
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git commit -m "Add notes file"
+[main fcc45f7] Add notes file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 notes.txt
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ ^C
+
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ ^V
+bash: $'\026': command not found
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 282 bytes | 282.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/cjpollins-collab/RemotePractice.git
+   d4d24d7..fcc45f7  main -> main
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git branch feature-branch
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git switch feature-branch
+Switched to branch 'feature-branch'
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (feature-branch)
+$ git add notes.txt
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (feature-branch)
+$ git commit -m "Update notes on feature branch"
+On branch feature-branch
+nothing to commit, working tree clean
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (feature-branch)
+$ git push origin feature-branch
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'feature-branch' on GitHub by visiting:
+remote:      https://github.com/cjpollins-collab/RemotePractice/pull/new/feature-branch
+remote:
+To https://github.com/cjpollins-collab/RemotePractice.git
+ * [new branch]      feature-branch -> feature-branch
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (feature-branch)
+$ git switch main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git pull origin main
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 1.00 KiB | 205.00 KiB/s, done.
+From https://github.com/cjpollins-collab/RemotePractice
+ * branch            main       -> FETCH_HEAD
+   fcc45f7..c8c7609  main       -> origin/main
+Updating fcc45f7..c8c7609
+Fast-forward
+ README.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git merge feature-branch
+Already up to date.
+
+Owner@DESKTOP-LAL5SFG MINGW64 ~/RemotePractice (main)
+$ git push origin main
+Everything up-to-date
